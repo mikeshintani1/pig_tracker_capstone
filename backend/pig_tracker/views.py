@@ -51,6 +51,7 @@ def user_list(request):
     return Response(serializer.data, status=status.HTTP_201_CREATED)
 
 @api_view(['GET', 'PUT', 'DELETE'])
+@permission_classes([IsAuthenticated])
 def user_detail(request, pk):
     user = get_object_or_404(User, pk=pk)
     if request.method == 'GET':
@@ -73,6 +74,7 @@ def get_all_comments(request):
     comments = Comment.objects.all()
     serializer = CommentSerializer(comments, many=True)
     return Response(serializer.data)
+
 
 @api_view(['GET', 'PUT', 'POST'])
 @permission_classes([IsAuthenticated])
