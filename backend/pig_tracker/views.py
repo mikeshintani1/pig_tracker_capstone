@@ -3,12 +3,14 @@ from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework import status
 from django.shortcuts import render
-from .models import User
+from .models import Sighting, User
 from .serializer import UserSerializer
 from .models import Comment
 from .models import Reply
+from .models import Sighting
 from .serializer import CommentSerializer
 from .serializer import ReplySerializer
+from .serializer import SightingSerializer
 from user_type.models import User_Type
 from rest_framework.permissions import IsAuthenticated, AllowAny
 from rest_framework.decorators import api_view, permission_classes
@@ -122,3 +124,24 @@ def get_all_replies(request, pk):
     return Response(serializer.data)
 
 
+@api_view(['GET', 'PUT', 'POST'])
+@permission_classes([IsAuthenticated])
+def user_sighting(request, pk):
+    user_protected = get_object_or_404(Sighting, pk=pk)
+    print(
+        'User ', f"{request.user.id} {request.user.email} {request.user.username}")
+    if request.method == 'PUT':
+        serializer = SightingSerializer(user_protected, data=request.data)
+        serializer.is_valid(raise_exception=True)
+        serializer.save()
+        return Response(serializer.data, status=status.HTTP_200_OK)
+    if request.method == 'POST':
+        serializer = SightingSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save(user=request.user)
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    if request.method == 'GET':
+        sighting = Sighting.objects.filter(sighting_id=request.Sighting.id)
+        serializer = SightingSerializer(sighting, many=True)
+        return Response(serializer.data)

@@ -6,7 +6,7 @@ const RegisterPage = () => {
   const { registerUser } = useContext(AuthContext);
   const defaultValues = {
     username: "",
-    email: "",
+    userCategory: "",
     password: "",
     firstName: "",
     lastName: "",
@@ -46,15 +46,18 @@ const RegisterPage = () => {
             onChange={handleInputChange}
           />
         </label>
-        <label>
-          Email:{" "}
-          <input
-            type="text"
-            name="email"
-            value={formData.email}
+        <label for="standard-select">User Category</label>
+        <div class="select">
+          <select id="User Type">
+            <option value="Option 1">Landowner</option>
+            <option value="Option 2">Hunter</option>
+            <option value="Option 3">Conservationalist</option>
+            <input value={formData.userCategory}
             onChange={handleInputChange}
-          />
-        </label>
+            input/>
+          </select>
+          <span class="focus"></span>
+        </div>
         <label>
           Password:{" "}
           <input
@@ -75,3 +78,4 @@ const RegisterPage = () => {
 };
 
 export default RegisterPage;
+

@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import User, Comment, Reply
+from .models import Sighting, User, Comment, Reply
 
 
 class UserSerializer(serializers.ModelSerializer):
@@ -11,11 +11,16 @@ class UserSerializer(serializers.ModelSerializer):
 class CommentSerializer(serializers.ModelSerializer):
     class Meta:
         model = Comment
-        fields= ['id', 'user', 'spotting_id', 'text']
+        fields= ['id', 'user', 'comment_id', 'text']
         depth = 2
         
 
 class ReplySerializer(serializers.ModelSerializer):
     class Meta:
         model = Reply
-        fields= ['id', 'user', 'comment', 'text']
+        fields= ['id', 'user', 'reply', 'text']
+
+class SightingSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Sighting
+        fields = ['id', 'user', 'sighting_id', 'location', 'time', 'date', 'text']
