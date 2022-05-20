@@ -3,7 +3,7 @@ from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework import status
 from django.shortcuts import render
-from .models import Sighting, User
+from .models import Sighting, PigUser
 from .serializer import UserSerializer
 from .models import Comment
 from .models import Reply
@@ -19,9 +19,9 @@ from rest_framework.decorators import api_view, permission_classes
 
 # ADMIN VIEW TO TRACK USERS
 @api_view(['GET','POST'])
-@permission_classes([IsAuthenticated])
+
 def user_list(request):
-    user = User.objects.all()
+    user = PigUser.objects.all()
     user_type_param = request.query_params.get('type')
     sort_param = request.query_params.get('sort')
     custom_response_dictionary = {}
@@ -38,7 +38,7 @@ def user_list(request):
         user_type = User_Type.objects.all()
         
         for user_type in user_type:
-            user = User.objects.filter(user_type=user_type)
+            user = PigUser.objects.filter(user_type=user_type)
             user_serialzer = UserSerializer(user, many=True)
             custom_response_dictionary[user_type.type] = {
                 "types": user_type.type,
@@ -55,7 +55,7 @@ def user_list(request):
 @api_view(['GET', 'PUT', 'DELETE'])
 @permission_classes([IsAuthenticated])
 def user_detail(request, pk):
-    user = get_object_or_404(User, pk=pk)
+    user = get_object_or_404(PigUser, pk=pk)
     if request.method == 'GET':
         serializer = UserSerializer(user)
         return Response(serializer.data, status=status.HTTP_200_OK)
@@ -78,33 +78,20 @@ def get_all_comments(request):
     return Response(serializer.data)
 
 
-@api_view(['GET', 'PUT', 'POST'])
+@api_view(['POST'])
 @permission_classes([IsAuthenticated])
-def user_comment_prop(request, pk):
-    user_protected = get_object_or_404(Comment, pk=pk)
-    print(
-        'User ', f"{request.user.id} {request.user.email} {request.user.username}")
-    if request.method == 'PUT':
-        serializer = CommentSerializer(user_protected, data=request.data)
-        serializer.is_valid(raise_exception=True)
-        serializer.save()
-        return Response(serializer.data, status=status.HTTP_200_OK)
+def user_comment_prop(request):
     if request.method == 'POST':
         serializer = CommentSerializer(data=request.data)
-        if serializer.is_valid():
+        if serializer.is_valid(raise_exception=True):
             serializer.save(user=request.user)
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-    if request.method == 'GET':
-        comments = Comment.objects.filter(comments_id=request.Comment.id)
-        serializer = CommentSerializer(comments, many=True)
-        return Response(serializer.data)
 
 
 @api_view(['POST'])
 @permission_classes([IsAuthenticated])
 def user_replies(request):
-    
     print(
     'User ', f"{request.user.id} {request.user.email} {request.user.username}")
     if request.method == 'POST':

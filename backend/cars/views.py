@@ -5,6 +5,7 @@ from rest_framework.decorators import api_view, permission_classes
 from .models import Car
 from .serializers import CarSerializer
 
+
 # <<<<<<<<<<<<<<<<< EXAMPLE FOR STARTER CODE USE <<<<<<<<<<<<<<<<<
 
 
