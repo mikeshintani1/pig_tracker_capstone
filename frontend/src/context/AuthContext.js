@@ -2,7 +2,6 @@ import { createContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import jwtDecode from "jwt-decode";
-
 const AuthContext = createContext();
 
 export default AuthContext;
@@ -32,10 +31,15 @@ export const AuthProvider = ({ children }) => {
       let finalData = {
         username: registerData.username,
         password: registerData.password,
-        email: registerData.email,
         first_name: registerData.firstName,
         last_name: registerData.lastName,
+        email: registerData.email,
+        is_hunter: registerData.isHunter,
+        is_landowner: registerData.isLandowner,
+        is_conservationalist: registerData.isConservationalist
+
       };
+
       let response = await axios.post(`${BASE_URL}/register/`, finalData);
       if (response.status === 201) {
         console.log("Successful registration! Log in to access token");

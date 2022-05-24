@@ -1,9 +1,11 @@
 # from django.db import models
 from django.contrib.auth.models import AbstractUser
-
+from django.db import models
 
 class User(AbstractUser):
-    pass
+    is_hunter = models.BooleanField('Hunter', default=False)
+    is_landowner = models.BooleanField('landowner', default=False)
+    is_conservationalist = models.BooleanField('Conservationalist', default=False)
     '''
     This is a custom version of the built in User class
     It contains all of the built in fields and functionality of the standard User

@@ -113,18 +113,12 @@ def get_all_replies(request, pk):
 
 @api_view(['GET', 'PUT', 'POST'])
 @permission_classes([IsAuthenticated])
-def user_sighting(request, pk):
-    user_protected = get_object_or_404(Sighting, pk=pk)
+def user_sighting(request):
     print(
         'User ', f"{request.user.id} {request.user.email} {request.user.username}")
-    if request.method == 'PUT':
-        serializer = SightingSerializer(user_protected, data=request.data)
-        serializer.is_valid(raise_exception=True)
-        serializer.save()
-        return Response(serializer.data, status=status.HTTP_200_OK)
     if request.method == 'POST':
         serializer = SightingSerializer(data=request.data)
-        if serializer.is_valid():
+        if serializer.is_valid(raise_exception=True):
             serializer.save(user=request.user)
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)

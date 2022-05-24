@@ -2,14 +2,17 @@ import React, { useContext } from "react";
 import AuthContext from "../../context/AuthContext";
 import useCustomForm from "../../hooks/useCustomForm";
 
+
 const RegisterPage = () => {
   const { registerUser } = useContext(AuthContext);
   const defaultValues = {
     username: "",
     userCategory: "",
+    email:"",
     password: "",
     firstName: "",
     lastName: "",
+
   };
   const [formData, handleInputChange, handleSubmit] = useCustomForm(
     defaultValues,
@@ -46,18 +49,15 @@ const RegisterPage = () => {
             onChange={handleInputChange}
           />
         </label>
-        <label for="standard-select">User Category</label>
-        <div class="select">
-          <select id="User Type">
-            <option value="Option 1">Landowner</option>
-            <option value="Option 2">Hunter</option>
-            <option value="Option 3">Conservationalist</option>
-            <input value={formData.userCategory}
+        <label>
+         Email:{" "}
+          <input
+            type="text"
+            name="email"
+            value={formData.email}
             onChange={handleInputChange}
-            input/>
-          </select>
-          <span class="focus"></span>
-        </div>
+          />
+        </label>
         <label>
           Password:{" "}
           <input

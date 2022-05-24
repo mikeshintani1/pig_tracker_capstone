@@ -11,5 +11,5 @@ urlpatterns = [
     path('replies/', views.user_replies),
     path('user/<int:pk>', views.user_list),
     path('<int:pk>/user_detail', views.user_detail),
-    path('sighting/<int:pk>', views.user_sighting)
+    path('sighting/', views.user_sighting)
 ]

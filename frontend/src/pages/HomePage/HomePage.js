@@ -1,8 +1,9 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import useAuth from "../../hooks/useAuth";
-
+import FullMap from "../../components/Map/GoogleMap";
 import axios from "axios";
+import MapContainer from "../../components/Map/GoogleMap";
 
 const HomePage = () => {
   // The "user" value from this Hook contains the decoded logged in user information (username, first name, id)
@@ -28,15 +29,19 @@ const HomePage = () => {
   }, [token]);
   return (
     <div className="container">
-      <h1>Home Page for {user.username}!</h1>
+      <h1>Welcome to Texas Pig Tracker {user.username}!!</h1>
       {cars &&
         cars.map((car) => (
           <p key={car.id}>
             {car.year} {car.model} {car.make}
           </p>
         ))}
+        <div>
+        <MapContainer />
+        </div>
     </div>
   );
 };
 
 export default HomePage;
+
