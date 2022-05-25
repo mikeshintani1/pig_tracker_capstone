@@ -1,9 +1,9 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import useAuth from "../../hooks/useAuth";
-import FullMap from "../../components/Map/GoogleMap";
 import axios from "axios";
 import MapContainer from "../../components/Map/GoogleMap";
+
 
 const HomePage = () => {
   // The "user" value from this Hook contains the decoded logged in user information (username, first name, id)
