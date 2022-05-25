@@ -4,11 +4,33 @@ import useAuth from "../../hooks/useAuth";
 import axios from "axios";
 import MapContainer from "../../components/Map/GoogleMap";
 import CreateComment from "../../components/CreateComment/CreateComment";
+import CommentTable from "../../components/CreateComment/CommentTable";
+import './HomePage.css'
+
 
 const HomePage = () => {
   // The "user" value from this Hook contains the decoded logged in user information (username, first name, id)
   // The "token" value is the JWT token that you will send in the header of any request requiring authentication
   //TODO: Add an AddCars Page to add a car for a logged in user's garage
+  const [comment, setComment] = useState([]);
+
+  useEffect(() => {
+    getAllComments();
+  }, [])
+
+  async function getAllComments(){
+    try{
+      let response = await axios.get('http://127.0.0.1:8000/api/pig_tracker/get_all_comments/');
+      console.log(response.data);
+      setComment(response.data)
+    } catch (ex) {
+      console.log('Error in call!!');
+    }
+  }
+
+
+
+
   const [user, token] = useAuth();
   const [cars, setCars] = useState([]);
 
@@ -29,7 +51,7 @@ const HomePage = () => {
   }, [token]);
   return (
     <div className="container">
-      <h1>Welcome to Texas Pig Tracker {user.username}!!</h1>
+      <h1 className = "header">Welcome to Texas Pig Tracker {user.username}!!</h1>
       {cars &&
         cars.map((car) => (
           <p key={car.id}>
@@ -39,6 +61,8 @@ const HomePage = () => {
         <div>
         <MapContainer />
         <CreateComment />
+        <button className='getComments' onClick = {getAllComments}>See all comments</button>
+        <CommentTable parentComments = {comment}/>
         </div>
     </div>
   );
