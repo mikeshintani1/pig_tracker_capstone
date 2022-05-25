@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import useAuth from "../../hooks/useAuth";
 import axios from "axios";
 import MapContainer from "../../components/Map/GoogleMap";
-
+import CreateComment from "../../components/CreateComment/CreateComment";
 
 const HomePage = () => {
   // The "user" value from this Hook contains the decoded logged in user information (username, first name, id)
@@ -38,6 +38,7 @@ const HomePage = () => {
         ))}
         <div>
         <MapContainer />
+        <CreateComment />
         </div>
     </div>
   );

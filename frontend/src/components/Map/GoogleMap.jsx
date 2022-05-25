@@ -13,7 +13,7 @@ const MapContainer = () => {
   // latLngString will be added to object that axios sends to backend
 
   const mapStyles = {        
-    height: "100vh",
+    height: "50vh",
     width: "100%"};
   
   const defaultCenter = {
@@ -39,10 +39,10 @@ const MapContainer = () => {
   }, [latLng])
   
 
-
+// AIzaSyAFJMJ13kPzlp2i-VHeMUtjsMymMewETds
   return (
      <LoadScript
-       googleMapsApiKey="AIzaSyAFJMJ13kPzlp2i-VHeMUtjsMymMewETds">
+       googleMapsApiKey="">
         <GoogleMap
           id="marker-example"
           mapContainerStyle={mapStyles}
