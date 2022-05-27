@@ -12,6 +12,8 @@ const HomePage = () => {
   // The "user" value from this Hook contains the decoded logged in user information (username, first name, id)
   // The "token" value is the JWT token that you will send in the header of any request requiring authentication
   //TODO: Add an AddCars Page to add a car for a logged in user's garage
+  
+  const [user, token] = useAuth();
   const [comment, setComment] = useState([]);
 
   useEffect(() => {
@@ -27,11 +29,8 @@ const HomePage = () => {
       console.log('Error in call!!');
     }
   }
+  
 
-
-
-
-  const [user, token] = useAuth();
   const [cars, setCars] = useState([]);
 
   useEffect(() => {
@@ -60,8 +59,10 @@ const HomePage = () => {
         ))}
         <div>
         <MapContainer />
+        <div>
         <CreateComment />
-        <button className='getComments' onClick = {getAllComments}>See all comments</button>
+        </div>
+        <button className='getComments' onClick = {getAllComments}>Previous Comments</button>
         <CommentTable parentComments = {comment}/>
         </div>
     </div>

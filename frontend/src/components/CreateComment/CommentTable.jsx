@@ -11,7 +11,6 @@ const CommentTable = (props) => {
             <tr>
                 <th scope='col'>Name</th>
                 <th scope='col'>Location</th>
-                <th scope='col'>Date</th>
                 <th scope='col'>Comment</th>
             </tr>
         </thead>
@@ -19,9 +18,8 @@ const CommentTable = (props) => {
             {props.parentComments.map((comment) => {
                 return(
                 <tr>
-                <td>{comment.user}</td>
+                <td>{comment.name}</td>
                 <td>{comment.location}</td>
-                <td>{comment.date}</td>
                 <td>{comment.text}</td>
                 </tr>
                 )

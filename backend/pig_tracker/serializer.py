@@ -11,7 +11,7 @@ class UserSerializer(serializers.ModelSerializer):
 class CommentSerializer(serializers.ModelSerializer):
     class Meta:
         model = Comment
-        fields= ['id', 'user_id', 'location', 'text']
+        fields= ['id', 'name', 'location', 'text']
         depth = 1
         
 
