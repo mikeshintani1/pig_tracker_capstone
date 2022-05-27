@@ -32,33 +32,42 @@ const MapContainer = () => {
     console.log('hi')
     console.log(e.latLng.toString());
     setLatLng(e.latLng)
-  }
 
-  useEffect(() =>{
-    console.log(latLng)
-  }, [latLng])
-  
+  }
+  const [coords, setCoords] = useState('')
+ 
 
 // AIzaSyAFJMJ13kPzlp2i-VHeMUtjsMymMewETds
   return (
+    <div>
+    <label>
+    PIN COORDS (click to refresh):
+    <input
+      type="text"
+      value={coords}
+      onClick={() => setCoords(latLng.toString())}
+    />
+  </label>
      <LoadScript
-       googleMapsApiKey="">
+       googleMapsApiKey="AIzaSyAFJMJ13kPzlp2i-VHeMUtjsMymMewETds">
         <GoogleMap
           id="marker-example"
           mapContainerStyle={mapStyles}
           zoom={6}
           center={defaultCenter}
           onClick={onMapClick}
+          autopan={false}
+          
           >
           <Marker
             onLoad={onLoad}
             position={latLng}
-          
           >  
           </Marker>
           </GoogleMap>
-     </LoadScript>
-
+     </LoadScript>    
+     </div>    
+     
   )
 }
 export default MapContainer;

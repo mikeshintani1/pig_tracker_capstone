@@ -48,7 +48,7 @@ const CreateSighting = (props) => {
 
     return (
         <form onSubmit={handleSubmit} className='form-grid'>
-            <h3 className='h3-css'>Log Sighting!</h3>
+            <h3 className='h3-css'>Hog Sighting!</h3>
             <div className='form-group'>
                 <label className='label-group'>Name</label>
                 <input type='text' className='form-control' value={name} onChange={(event) => setName(event.target.value)}/>
@@ -74,7 +74,7 @@ const CreateSighting = (props) => {
                 <label className='label-group'>Comment</label>
                 <input type='text' className='form-control' value={text} onChange={(event) => setText(event.target.value)}/>
             </div>
-            <button className="comment" type="submit">LOG!</button>
+            <button className="comment" type="submit">HOG!</button>
         
         </form>
     );

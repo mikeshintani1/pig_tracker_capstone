@@ -99,6 +99,13 @@ def user_sighting(request):
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
+@api_view(['GET'])
+@permission_classes([AllowAny])
+def get_all_sighting(request):
+    if request.method == 'GET':
+        sightings = Sighting.objects.all()
+        serializer = SightingSerializer(sightings, many=True)
+        return Response(serializer.data)
 
 
 @api_view(['POST'])

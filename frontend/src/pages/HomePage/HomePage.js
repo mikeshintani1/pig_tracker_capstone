@@ -7,6 +7,7 @@ import CreateComment from "../../components/CreateComment/CreateComment";
 import CommentTable from "../../components/CreateComment/CommentTable";
 import './HomePage.css'
 import DisplaySightings from "../../components/Sighting/Sighting";
+import SightingTable from "../../components/Sighting/SightingTable";
 
 const HomePage = () => {
   // The "user" value from this Hook contains the decoded logged in user information (username, first name, id)
@@ -15,6 +16,7 @@ const HomePage = () => {
   
   const [user, token] = useAuth();
   const [comment, setComment] = useState([]);
+  const [sighting, setSighting] = useState([]);
 
   useEffect(() => {
     getAllComments();
@@ -25,6 +27,16 @@ const HomePage = () => {
       let response = await axios.get('http://127.0.0.1:8000/api/pig_tracker/get_all_comments/');
       console.log(response.data);
       setComment(response.data)
+    } catch (ex) {
+      console.log('Error in call!!');
+    }
+  }
+
+  async function getAllSightings(){
+    try{
+      let response = await axios.get('http://127.0.0.1:8000/api/pig_tracker/get_all_sighting/');
+      console.log(response.data);
+      setSighting(response.data)
     } catch (ex) {
       console.log('Error in call!!');
     }
@@ -67,6 +79,8 @@ const HomePage = () => {
         </div>
         <div>
           <DisplaySightings />
+          <button className='getComments' onClick = {getAllSightings}>Previous Sightings</button>
+          <SightingTable parentSighting = {sighting} />
         </div>
     </div>
   );
