@@ -89,6 +89,17 @@ def user_comment_prop(request):
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
+@api_view(['POST'])
+@permission_classes([AllowAny])
+def user_sighting(request):
+    if request.method == 'POST':
+        serializer = SightingSerializer(data=request.data)
+        if serializer.is_valid(raise_exception=True):
+            serializer.save(user=request.user)
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
 
 @api_view(['POST'])
 @permission_classes([IsAuthenticated])
@@ -112,18 +123,3 @@ def get_all_replies(request, pk):
     return Response(serializer.data)
 
 
-@api_view(['GET', 'PUT', 'POST'])
-@permission_classes([IsAuthenticated])
-def user_sighting(request):
-    print(
-        'User ', f"{request.user.id} {request.user.email} {request.user.username}")
-    if request.method == 'POST':
-        serializer = SightingSerializer(data=request.data)
-        if serializer.is_valid(raise_exception=True):
-            serializer.save(user=request.user)
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-    if request.method == 'GET':
-        sighting = Sighting.objects.filter(sighting_id=request.Sighting.id)
-        serializer = SightingSerializer(sighting, many=True)
-        return Response(serializer.data)

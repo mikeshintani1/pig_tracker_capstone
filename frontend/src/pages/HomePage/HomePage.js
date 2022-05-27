@@ -6,7 +6,7 @@ import MapContainer from "../../components/Map/GoogleMap";
 import CreateComment from "../../components/CreateComment/CreateComment";
 import CommentTable from "../../components/CreateComment/CommentTable";
 import './HomePage.css'
-
+import DisplaySightings from "../../components/Sighting/Sighting";
 
 const HomePage = () => {
   // The "user" value from this Hook contains the decoded logged in user information (username, first name, id)
@@ -64,6 +64,9 @@ const HomePage = () => {
         </div>
         <button className='getComments' onClick = {getAllComments}>Previous Comments</button>
         <CommentTable parentComments = {comment}/>
+        </div>
+        <div>
+          <DisplaySightings />
         </div>
     </div>
   );

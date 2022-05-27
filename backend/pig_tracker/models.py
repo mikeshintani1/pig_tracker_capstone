@@ -1,3 +1,4 @@
+from tkinter import CASCADE
 from unicodedata import name
 from unittest.util import _MAX_LENGTH
 from django.db import models
@@ -25,7 +26,9 @@ class Reply(models.Model):
 
 class Sighting(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
+    name = models.CharField(max_length=300)
     sighting_id = models.CharField(max_length=250)
     location = models.CharField(max_length=255)
-    time = models.DateTimeField()
+    date=models.CharField(max_length=255)
+    time = models.CharField(max_length=255)
     text = models.CharField(max_length=300)

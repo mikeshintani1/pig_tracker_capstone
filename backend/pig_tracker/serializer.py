@@ -23,4 +23,4 @@ class ReplySerializer(serializers.ModelSerializer):
 class SightingSerializer(serializers.ModelSerializer):
     class Meta:
         model = Sighting
-        fields = ['id', 'user', 'sighting_id', 'location', 'time', 'date', 'text']
+        fields = ['id', 'user', 'name' ,'location','sighting_id', 'time', 'date', 'text']
