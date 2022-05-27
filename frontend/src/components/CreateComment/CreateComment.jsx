@@ -1,7 +1,7 @@
 import React, { useReducer, useState,useEffect } from 'react';
 import useAuth from "../../hooks/useAuth";
 import axios from "axios";
-
+import CommentImg from './commentimg';
 
 
 const CreateComment = (props) => {
@@ -41,7 +41,7 @@ const CreateComment = (props) => {
 
     return (
         <form onSubmit={handleSubmit} className='form-grid'>
-            <h3 className='h3-css'>Create Comment!</h3>
+            <CommentImg />
             <div className='form-group'>
                 <label className='label-group'>Name</label>
                 <input type='text' className='form-control' value={name} onChange={(event) => setName(event.target.value)}/>

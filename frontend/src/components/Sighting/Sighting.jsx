@@ -1,7 +1,7 @@
 import React, { useReducer, useState,useEffect } from 'react';
 import useAuth from "../../hooks/useAuth";
 import axios from "axios";
-
+import HogHeader from './hogsighting';
 
 
 const CreateSighting = (props) => {
@@ -48,7 +48,7 @@ const CreateSighting = (props) => {
 
     return (
         <form onSubmit={handleSubmit} className='form-grid'>
-            <h3 className='h3-css'>Hog Sighting!</h3>
+            <HogHeader />
             <div className='form-group'>
                 <label className='label-group'>Name</label>
                 <input type='text' className='form-control' value={name} onChange={(event) => setName(event.target.value)}/>

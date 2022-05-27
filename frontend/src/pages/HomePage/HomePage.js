@@ -8,6 +8,9 @@ import CommentTable from "../../components/CreateComment/CommentTable";
 import './HomePage.css'
 import DisplaySightings from "../../components/Sighting/Sighting";
 import SightingTable from "../../components/Sighting/SightingTable";
+import HomeHeader from "./HomePageHdr";
+
+
 
 const HomePage = () => {
   // The "user" value from this Hook contains the decoded logged in user information (username, first name, id)
@@ -62,7 +65,7 @@ const HomePage = () => {
   }, [token]);
   return (
     <div className="container">
-      <h1 className = "header">Welcome to Texas Pig Tracker {user.username}!!</h1>
+      <HomeHeader className='HomeHeader'/>
       {cars &&
         cars.map((car) => (
           <p key={car.id}>
