@@ -1,7 +1,7 @@
 import React, { useReducer, useState,useEffect } from 'react';
 import useAuth from "../../hooks/useAuth";
 import axios from "axios";
-import { Marker } from '@react-google-maps/api';
+
 
 
 

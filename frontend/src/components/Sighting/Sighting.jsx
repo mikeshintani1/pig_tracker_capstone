@@ -1,13 +1,11 @@
 import React, { useReducer, useState,useEffect } from 'react';
 import useAuth from "../../hooks/useAuth";
 import axios from "axios";
-import { Marker } from '@react-google-maps/api';
 
 
 
-const CreateComment = (props) => {
+const CreateSighting = (props) => {
 
-    const [user_id, setUser] = useState('')
     const [name, setName] = useState('')
     const [sighting_id, setSightingId] = useState('');
     const [location, setLocation] = useState('');
@@ -31,9 +29,9 @@ const CreateComment = (props) => {
 
         };
         console.log(createSighting);
-        addComment(createSighting);
+        addSighting(createSighting);
     }
-    async function addComment(CreateSighting) {
+    async function addSighting(CreateSighting) {
       try {
         console.log('hello')
         let response = await axios.post("http://127.0.0.1:8000/api/pig_tracker/sighting/", CreateSighting, {
@@ -82,5 +80,5 @@ const CreateComment = (props) => {
     );
 }
  
-export default CreateComment;
+export default CreateSighting;
 

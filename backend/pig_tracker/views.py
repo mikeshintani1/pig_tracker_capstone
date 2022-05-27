@@ -90,7 +90,7 @@ def user_comment_prop(request):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 @api_view(['POST'])
-@permission_classes([AllowAny])
+@permission_classes([IsAuthenticated])
 def user_sighting(request):
     if request.method == 'POST':
         serializer = SightingSerializer(data=request.data)
@@ -121,5 +121,4 @@ def get_all_replies(request, pk):
     reply = Reply.objects.filter(comment_id=pk)
     serializer = ReplySerializer(reply, many=True)
     return Response(serializer.data)
-
 
