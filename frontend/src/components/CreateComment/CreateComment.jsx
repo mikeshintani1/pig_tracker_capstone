@@ -2,7 +2,7 @@ import React, { useReducer, useState,useEffect } from 'react';
 import useAuth from "../../hooks/useAuth";
 import axios from "axios";
 import CommentImg from './commentimg';
-
+import './CreateComment.css'
 
 const CreateComment = (props) => {
     
@@ -42,6 +42,7 @@ const CreateComment = (props) => {
     return (
         <form onSubmit={handleSubmit} className='form-grid'>
             <CommentImg />
+            <nav style={{display: "flex", justifyContent: "space-evenly"}} >
             <div className='form-group'>
                 <label className='label-group'>Name</label>
                 <input type='text' className='form-control' value={name} onChange={(event) => setName(event.target.value)}/>
@@ -54,6 +55,7 @@ const CreateComment = (props) => {
                 <label className='label-group'>Comment</label>
                 <input type='text' className='form-control' value={text} onChange={(event) => setText(event.target.value)}/>
             </div>
+            </nav>
             <button className="comment" type="submit">Create Comment</button>
         
         </form>

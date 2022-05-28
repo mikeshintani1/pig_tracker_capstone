@@ -49,13 +49,14 @@ const CreateSighting = (props) => {
     return (
         <form onSubmit={handleSubmit} className='form-grid'>
             <HogHeader />
+            <nav style={{display: "flex", justifyContent: "space-evenly"}} >
             <div className='form-group'>
                 <label className='label-group'>Name</label>
                 <input type='text' className='form-control' value={name} onChange={(event) => setName(event.target.value)}/>
             </div>            
 
             <div className='form-group'>
-                <label className='label-group'>Sighting ID</label>
+                <label className='label-group'>Quantity</label>
                 <input type='text' className='form-control' value={sighting_id} onChange={(event) => setSightingId(event.target.value)}/>
             </div>
             <div className='form-group'>
@@ -74,6 +75,7 @@ const CreateSighting = (props) => {
                 <label className='label-group'>Comment</label>
                 <input type='text' className='form-control' value={text} onChange={(event) => setText(event.target.value)}/>
             </div>
+            </nav>
             <button className="comment" type="submit">HOG!</button>
         
         </form>

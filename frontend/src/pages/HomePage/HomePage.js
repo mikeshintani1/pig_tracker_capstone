@@ -64,28 +64,27 @@ const HomePage = () => {
     fetchCars();
   }, [token]);
   return (
-    <div className="container">
+    <div class='row' className="container">
       <HomeHeader className='HomeHeader'/>
-      {cars &&
-        cars.map((car) => (
-          <p key={car.id}>
-            {car.year} {car.model} {car.make}
-          </p>
-        ))}
+      <MapContainer /> 
+      <nav style={{display: "flex", justifyContent: "space-evenly"}} >
+    
+               
+       </nav>
+        <DisplaySightings />
         <div>
-        <MapContainer />
-        <div>
-        <CreateComment />
-        </div>
-        <button className='getComments' onClick = {getAllComments}>Previous Comments</button>
-        <CommentTable parentComments = {comment}/>
-        </div>
-        <div>
-          <DisplaySightings />
           <button className='getComments' onClick = {getAllSightings}>Previous Sightings</button>
           <SightingTable parentSighting = {sighting} />
+          
         </div>
-    </div>
+        <CreateComment />
+          <button className='getComments' onClick = {getAllComments}>Previous Comments</button>
+        <CommentTable parentComments = {comment}/>
+          <div class='column'>
+          
+
+        </div>
+      </div>
   );
 };
 

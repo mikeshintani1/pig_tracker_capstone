@@ -10,7 +10,7 @@ const SightingTable = (props) => {
         <thead>
             <tr>
                 <th scope='col'>Name</th>
-                <th scope='col'>Sighting_ID</th>
+                <th scope='col'>Quantity</th>
                 <th scope='col'>Location</th>
                 <th scope='col'>Time</th>
                 <th scope='col'>Date</th>
@@ -21,8 +21,8 @@ const SightingTable = (props) => {
             {props.parentSighting.map((sighting) => {
                 return(
                 <tr>
-                <td>{sighting.name}</td>
-                <td>{sighting.sighting_id}</td>
+                <td >{sighting.name}</td>
+                <td >{sighting.sighting_id}</td>
                 <td>{sighting.location}</td>
                 <td>{sighting.time}</td>
                 <td>{sighting.date}</td>

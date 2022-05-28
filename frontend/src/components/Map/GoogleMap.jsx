@@ -49,7 +49,7 @@ const MapContainer = () => {
     />
   </label>
      <LoadScript
-       googleMapsApiKey="AIzaSyAFJMJ13kPzlp2i-VHeMUtjsMymMewETds">
+       googleMapsApiKey="">
         <GoogleMap
           id="marker-example"
           mapContainerStyle={mapStyles}
