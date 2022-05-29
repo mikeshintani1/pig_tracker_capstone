@@ -10,6 +10,7 @@ const SightingTable = (props) => {
         <thead>
             <tr>
                 <th scope='col'>Name</th>
+                <th scope='col'>Category</th>
                 <th scope='col'>Quantity</th>
                 <th scope='col'>Location</th>
                 <th scope='col'>Time</th>
@@ -22,6 +23,7 @@ const SightingTable = (props) => {
                 return(
                 <tr>
                 <td >{sighting.name}</td>
+                <td>{sighting.category}</td>
                 <td >{sighting.sighting_id}</td>
                 <td>{sighting.location}</td>
                 <td>{sighting.time}</td>

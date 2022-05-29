@@ -45,18 +45,31 @@ const CreateComment = (props) => {
             <nav style={{display: "flex", justifyContent: "space-evenly"}} >
             <div className='form-group'>
                 <label className='label-group'>Name</label>
-                <input type='text' className='form-control' value={name} onChange={(event) => setName(event.target.value)}/>
+                <input type='text'
+                className='form-control'
+                value={name}
+                onChange={(event) => setName(event.target.value)}/>
             </div>
             <div className='form-group'>
                 <label className='label-group'>Location</label>
-                <input type='text' className='form-control' value={location} onChange={(event) => setLocation(event.target.value)}/>
+                <input type='text'
+                className='form-control'
+                value={location}
+                onChange={(event) => setLocation(event.target.value)}/>
             </div>
             <div className='form-group'>
                 <label className='label-group'>Comment</label>
-                <input type='text' className='form-control' value={text} onChange={(event) => setText(event.target.value)}/>
+                <input type='text'
+                className='form-control'
+                value={text}
+                onChange={(event) => setText(event.target.value)}/>
             </div>
             </nav>
-            <button className="comment" type="submit">Create Comment</button>
+            <button className="comment"
+                    type="submit">
+                    <img src="https://img.icons8.com/external-victoruler-outline-victoruler/64/000000/external-pig-animal-squad-victoruler-outline-victoruler.png"
+                    width='100px'/>
+                    </button>
         
         </form>
     );

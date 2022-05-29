@@ -3,7 +3,7 @@ from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework import status
 from django.shortcuts import render
-from .models import Sighting, PigUser
+from .models import Sighting, PigUser, Feast
 from .serializer import UserSerializer
 from .models import Comment
 from .models import Reply
@@ -11,6 +11,7 @@ from .models import Sighting
 from .serializer import CommentSerializer
 from .serializer import ReplySerializer
 from .serializer import SightingSerializer
+from .serializer import FeastSerializer
 from user_type.models import User_Type
 from rest_framework.permissions import IsAuthenticated, AllowAny
 from rest_framework.decorators import api_view, permission_classes
@@ -107,6 +108,14 @@ def get_all_sighting(request):
         serializer = SightingSerializer(sightings, many=True)
         return Response(serializer.data)
 
+@api_view(['GET'])
+@permission_classes([AllowAny])
+def get_all_feast(request):
+    if request.method == 'GET':
+        feast = Feast.objects.all()
+        serializer = FeastSerializer(feast, many=True)
+        return Response(serializer.data)
+
 
 @api_view(['POST'])
 @permission_classes([IsAuthenticated])
@@ -129,3 +138,12 @@ def get_all_replies(request, pk):
     serializer = ReplySerializer(reply, many=True)
     return Response(serializer.data)
 
+@api_view(['POST'])
+@permission_classes([IsAuthenticated])
+def feast(request):
+    if request.method == 'POST':
+        serializer = FeastSerializer(data=request.data)
+        if serializer.is_valid(raise_exception=True):
+            serializer.save(user=request.user)
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)

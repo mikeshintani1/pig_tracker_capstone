@@ -9,7 +9,11 @@ import './HomePage.css'
 import DisplaySightings from "../../components/Sighting/Sighting";
 import SightingTable from "../../components/Sighting/SightingTable";
 import HomeHeader from "./HomePageHdr";
-
+import Pig from "./Pig";
+import "./HomePage.css"
+import Texas from "./TexasFlag";
+import DisplayFeast from "../../components/Feast/FeastTable";
+import CreateFeast from "../../components/Feast/Feast";
 
 
 const HomePage = () => {
@@ -20,6 +24,7 @@ const HomePage = () => {
   const [user, token] = useAuth();
   const [comment, setComment] = useState([]);
   const [sighting, setSighting] = useState([]);
+  const [feast, setFeast] = useState([]);
 
   useEffect(() => {
     getAllComments();
@@ -40,6 +45,16 @@ const HomePage = () => {
       let response = await axios.get('http://127.0.0.1:8000/api/pig_tracker/get_all_sighting/');
       console.log(response.data);
       setSighting(response.data)
+    } catch (ex) {
+      console.log('Error in call!!');
+    }
+  }
+
+  async function getFeast(){
+    try{
+      let response = await axios.get('http://127.0.0.1:8000/api/pig_tracker/get_all_feast/');
+      console.log(response.data);
+      setFeast(response.data)
     } catch (ex) {
       console.log('Error in call!!');
     }
@@ -65,7 +80,9 @@ const HomePage = () => {
   }, [token]);
   return (
     <div class='row' className="container">
+      <Texas className='Texas' width='150px'/>
       <HomeHeader className='HomeHeader'/>
+      <Pig className = "pig" width='150px'/>
       <MapContainer /> 
       <nav style={{display: "flex", justifyContent: "space-evenly"}} >
     
@@ -75,7 +92,14 @@ const HomePage = () => {
         <div>
           <button className='getComments' onClick = {getAllSightings}>Previous Sightings</button>
           <SightingTable parentSighting = {sighting} />
-          
+
+
+        </div>
+        <CreateFeast />
+        <div>
+          <button className='getFeast' onClick = {getFeast}>Pig Out!</button>
+          <DisplayFeast parentFeast = {feast} />
+        
         </div>
         <CreateComment />
           <button className='getComments' onClick = {getAllComments}>Previous Comments</button>

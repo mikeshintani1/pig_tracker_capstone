@@ -1,13 +1,15 @@
-import React, { useReducer, useState,useEffect } from 'react';
+import React, {  useState } from 'react';
 import useAuth from "../../hooks/useAuth";
 import axios from "axios";
 import HogHeader from './hogsighting';
+import './Sighting.css'
 
 
 const CreateSighting = (props) => {
 
     const [name, setName] = useState('')
     const [sighting_id, setSightingId] = useState('');
+    const [category, setCategory] = useState('');
     const [location, setLocation] = useState('');
     const [time, setTime] = useState('');
     const [text, setText] = useState('');
@@ -19,8 +21,8 @@ const CreateSighting = (props) => {
         event.preventDefault();
         let createSighting = {
             
-     
             name:name,
+            category:category,
             sighting_id: sighting_id,
             location: location,
             time: time,
@@ -52,31 +54,68 @@ const CreateSighting = (props) => {
             <nav style={{display: "flex", justifyContent: "space-evenly"}} >
             <div className='form-group'>
                 <label className='label-group'>Name</label>
-                <input type='text' className='form-control' value={name} onChange={(event) => setName(event.target.value)}/>
+                <input type='text'
+                className='form-control'
+                value={name}
+                onChange={(event) => setName(event.target.value)}/>
             </div>            
 
             <div className='form-group'>
                 <label className='label-group'>Quantity</label>
-                <input type='text' className='form-control' value={sighting_id} onChange={(event) => setSightingId(event.target.value)}/>
+                <input type='text'
+                className='form-control' 
+                alue={sighting_id}
+                onChange={(event) => setSightingId(event.target.value)}/>
             </div>
+
             <div className='form-group'>
                 <label className='label-group'>Location</label>
-                <input type='text' className='form-control' value={location} onChange={(event) => setLocation(event.target.value)}/>
+                <input type='text'
+                className='form-control'
+                value={location}
+                onChange={(event) => setLocation(event.target.value)}/>
             </div>
+
+            <div className='form-group'>
+                <label className='label-group'>Category</label>
+                <input type='text'
+                className='form-control'
+                value={category}
+                onChange={(event) => setCategory(event.target.value)}/>
+            </div>
+
             <div className='form-group'>
                 <label className='label-group'>Time</label>
-                <input type='text' className='form-control' value={time} onChange={(event) => setTime(event.target.value)}/>
+                <input type='text'
+                className='time'
+                value={time}
+                onChange={(event) => setTime(event.target.value)}/>
             </div>
-            <div className='form-group'>
+
+            <div className='date'>
                 <label className='label-group'>Date</label>
-                <input type='text' className='form-control' value={date} onChange={(event) => setDate(event.target.value)}/>
+                <input type='text'
+                className='date'
+                width='15px'
+                value={date}
+                onChange={(event) => setDate(event.target.value)}/>
             </div>
+
             <div className='form-group'>
                 <label className='label-group'>Comment</label>
-                <input type='text' className='form-control' value={text} onChange={(event) => setText(event.target.value)}/>
+                <input
+                type='text'
+                className='form-control'
+                value={text}
+                onChange={(event) => setText(event.target.value)}/>
             </div>
             </nav>
-            <button className="comment" type="submit">HOG!</button>
+                    <button 
+                    type="button" className='button'>
+                    <input type='image'
+                    img src="https://img.icons8.com/flat-round/64/000000/pig--v1.png"/>
+                    </button>
+                    
         
         </form>
     );

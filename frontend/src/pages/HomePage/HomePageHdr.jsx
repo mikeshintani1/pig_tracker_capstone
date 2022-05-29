@@ -8,4 +8,5 @@ function HomeHeader(){
     return <img src={logo} className='motley' alt='motely' />;
 }
 
+
 export default HomeHeader

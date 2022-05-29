@@ -17,7 +17,7 @@ const MapContainer = () => {
     width: "100%"};
   
   const defaultCenter = {
-    lat: 31.1352 , lng: -99.3351
+    lat: 32.72577166798035 , lng:-96.81400769921545
   }
   const position = {
     lat: 31.1352 ,

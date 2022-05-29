@@ -27,8 +27,17 @@ class Reply(models.Model):
 class Sighting(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     name = models.CharField(max_length=300)
+    category = models.CharField(max_length=300)
     sighting_id = models.CharField(max_length=250)
     location = models.CharField(max_length=255)
     date=models.CharField(max_length=255)
     time = models.CharField(max_length=255)
     text = models.CharField(max_length=300)
+
+class Feast(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    name = models.CharField(max_length=500)
+    date = models.CharField(max_length=300)
+    address = models.CharField(max_length=400)
+    time = models.CharField(max_length=300)
+    info = models.CharField(max_length=500)

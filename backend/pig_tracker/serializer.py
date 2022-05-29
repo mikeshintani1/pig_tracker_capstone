@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Sighting, PigUser, Comment, Reply
+from .models import Sighting, PigUser, Comment, Reply, Feast
 
 
 class UserSerializer(serializers.ModelSerializer):
@@ -23,4 +23,9 @@ class ReplySerializer(serializers.ModelSerializer):
 class SightingSerializer(serializers.ModelSerializer):
     class Meta:
         model = Sighting
-        fields = ['id', 'user_id', 'name' ,'location','sighting_id', 'time', 'date', 'text']
+        fields = ['id', 'user_id', 'name', 'category','location','sighting_id', 'time', 'date', 'text']
+
+class FeastSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Feast
+        fields = ['id', 'user_id','name', 'date', 'address', 'time', 'info']
