@@ -1,20 +1,25 @@
+//Support Features
 import React from "react";
 import { useEffect, useState } from "react";
 import useAuth from "../../hooks/useAuth";
 import axios from "axios";
+
+//Components
 import MapContainer from "../../components/Map/GoogleMap";
 import CreateComment from "../../components/CreateComment/CreateComment";
 import CommentTable from "../../components/CreateComment/CommentTable";
-import './HomePage.css'
 import DisplaySightings from "../../components/Sighting/Sighting";
 import SightingTable from "../../components/Sighting/SightingTable";
-import HomeHeader from "./HomePageHdr";
-import Pig from "./Pig";
-import "./HomePage.css"
-import Texas from "./TexasFlag";
 import DisplayFeast from "../../components/Feast/FeastTable";
 import CreateFeast from "../../components/Feast/Feast";
 
+//images
+import Texas from "./TexasFlag";
+import HomeHeader from "./HomePageHdr";
+import Pig from "./Pig";
+
+//CSS imports
+import "./HomePage.css"
 
 const HomePage = () => {
   // The "user" value from this Hook contains the decoded logged in user information (username, first name, id)
@@ -90,19 +95,33 @@ const HomePage = () => {
        </nav>
         <DisplaySightings />
         <div>
-          <button className='getComments' onClick = {getAllSightings}>Previous Sightings</button>
+
+          <button className='getComments'
+          onClick = {getAllSightings}>Previous Sightings</button>
+
           <SightingTable parentSighting = {sighting} />
 
 
         </div>
         <CreateFeast />
+        <div class='container'>
+           
+          <button class="btn" className="getFeast"
+          onClick = {getFeast}> <img src='https://images.cooltext.com/5603882.png'></img>
+          </button>
+        </div>
+
         <div>
-          <button className='getFeast' onClick = {getFeast}>Pig Out!</button>
           <DisplayFeast parentFeast = {feast} />
         
         </div>
+
         <CreateComment />
-          <button className='getComments' onClick = {getAllComments}>Previous Comments</button>
+        <div className="getComments">
+          <button
+          className='getComments'
+          onClick = {getAllComments}></button>
+        </div>
         <CommentTable parentComments = {comment}/>
           <div class='column'>
           

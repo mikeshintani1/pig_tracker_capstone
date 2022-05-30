@@ -67,8 +67,8 @@ const CreateComment = (props) => {
             </nav>
             <button className="comment"
                     type="submit">
-                    <img src="https://img.icons8.com/external-victoruler-outline-victoruler/64/000000/external-pig-animal-squad-victoruler-outline-victoruler.png"
-                    width='100px'/>
+                    <img src="https://img.icons8.com/flat-round/64/000000/pig--v1.png"
+                    width='80px'/>
                     </button>
         
         </form>

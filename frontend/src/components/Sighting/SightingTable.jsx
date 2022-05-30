@@ -1,12 +1,13 @@
 import axios from 'axios';
 import React from "react";
+import './Sighting.css'
 
 const SightingTable = (props) => {
 
     console.log(props.parentSighting);
 
     return(
-        <table className='table' charttype='table'>
+        <table className='table' charttype='table' border='2px' bordercolor='orange'>
         <thead>
             <tr>
                 <th scope='col'>Name</th>

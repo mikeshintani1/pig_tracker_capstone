@@ -51,6 +51,13 @@ const CreateSighting = (props) => {
     return (
         <form onSubmit={handleSubmit} className='form-grid'>
             <HogHeader />
+            <div>
+            <textbox className='sighting-text'>
+                Welcome to the Hog Sighting! Here you can enter your name, the location of pigs in lat / long form, cateogry (Hunter, Conservationist, Landowner), time you spotted the pigs, the day of spotting, and any comments such as pig health, pig size, etc!<br/>
+                
+                Press the Pig icon to post your sighting and the previous sightings button to load all other sightings!
+            </textbox>
+            </div>
             <nav style={{display: "flex", justifyContent: "space-evenly"}} >
             <div className='form-group'>
                 <label className='label-group'>Name</label>
@@ -111,9 +118,9 @@ const CreateSighting = (props) => {
             </div>
             </nav>
                     <button 
-                    type="button" className='button'>
+                    type="button" className='button' backgroundcolor='white' border='0px'>
                     <input type='image'
-                    img src="https://img.icons8.com/flat-round/64/000000/pig--v1.png"/>
+                    img src="https://img.icons8.com/flat-round/64/000000/pig--v1.png" width='80px'/>
                     </button>
                     
         

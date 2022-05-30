@@ -8,7 +8,8 @@ const CommentTable = (props) => {
     console.log(props.parentComments);
 
     return(
-        <table className='table' charttype='table'>
+        <div>
+        <table className='table' charttype='table' border='2px' bordercolor="blue">
         <thead>
             <tr>
                 <th scope='col'>Name</th>
@@ -29,6 +30,7 @@ const CommentTable = (props) => {
                 })}
             </tbody>
         </table>
+        </div>
 );
 }
 export default CommentTable

@@ -2,7 +2,7 @@ import React, { useReducer, useState,useEffect } from 'react';
 import useAuth from "../../hooks/useAuth";
 import axios from "axios";
 import FeastImg from './FeastHeader';
-
+import './Feast.css'
 
 const CreateFeast = (props) => {
     
@@ -45,7 +45,7 @@ const CreateFeast = (props) => {
 
     return (
         <form onSubmit={handleSubmit} className='form-grid'>
-            <FeastImg />
+            <FeastImg className='imgtop'/>
             <nav style={{display: "flex", justifyContent: "space-evenly"}} >
             <div className='form-group'>
                 <label className='label-group'>Name</label>
@@ -88,9 +88,9 @@ const CreateFeast = (props) => {
             </div>
             </nav>
             <button className="comment"
-                    type="submit">
-                    <img src="https://www.clipartmax.com/png/middle/122-1225250_chicken-barbecue-clipart.png"
-                    width='100px'/>
+                    type="submit" border-color='white'>
+                    <img src="https://img.icons8.com/flat-round/64/000000/pig--v1.png"
+                    width='80px'/>
                     </button>
         
         </form>

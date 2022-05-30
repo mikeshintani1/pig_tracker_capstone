@@ -8,7 +8,7 @@ const DisplayFeast = (props) => {
     console.log(props.parentFeast);
 
     return(
-        <table className='table' charttype='table'>
+        <table className='table' charttype='table' border='2px' bordercolor='red'>
         <thead>
             <tr>
                 <th scope='col'>Name</th>
