@@ -1,43 +1,76 @@
+
+
+
 .header{
+
     font: Poppins;
 }
 
 .HomeHeader{
+
     position: absolute;
     width: 100%;
 }
 
 .container{
+
     max-width: 1400px;
 }
 
 .pig{
+
    width: 150px
 }
 
 .texas{
+
     width:150px
 }
 
 .container{
+
     background-image: url(https://images.unsplash.com/32/Mc8kW4x9Q3aRR3RkP5Im_IMG_4417.jpg?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80);
     background-color: pink;
+    max-height: 100%;
+
 }
 
-.getComments{
-    background-color: white;
+.getSighting{
+
     text-align: inherit;
     box-sizing: content-box;
-}
-
-.getFeast{
-    background-color: aliceblue;
+    background-image: url(https://images.cooltext.com/5603888.png);
+    border-color:transparent;
     color: rgb(231, 247, 0);
     font-weight: 100%;
     opacity: 80%;
     padding: 0%;
-    height:fit-content;
-    width: fit-content
-;
-    
+    height: 70px;
+    width: 100%;
+    max-width: 17%
+}
+
+.getFeast{
+    border-color:transparent;
+    color: rgb(231, 247, 0);
+    font-weight: 100%;
+    opacity: 80%;
+    padding: 0%;
+    background-image: url(https://images.cooltext.com/5603945.png);
+    height: 80px;
+    width: 100%;
+    max-width: 12%
+}
+
+.getComments{
+    background-image: url(https://images.cooltext.com/5603948.png);
+    border-color:transparent;
+    color: rgb(231, 247, 0);
+    font-weight: 100%;
+    opacity: 80%;
+    padding: 0%;
+    height: 75px;
+    width: 100%;
+    max-width: 17%;
+    box-sizing: content-box;
 }

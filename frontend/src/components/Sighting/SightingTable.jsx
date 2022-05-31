@@ -19,10 +19,10 @@ const SightingTable = (props) => {
                 <th scope='col'>Sighting Info!</th>
             </tr>
         </thead>
-        <tbody>
+        <tbody overflow='scroll'>
             {props.parentSighting.map((sighting) => {
                 return(
-                <tr>
+                <tr overflow='scroll'>
                 <td >{sighting.name}</td>
                 <td>{sighting.category}</td>
                 <td >{sighting.sighting_id}</td>

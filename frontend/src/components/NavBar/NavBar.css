@@ -33,3 +33,9 @@ li {
   cursor: pointer;
   font-size: 2rem;
 }
+
+.fast-link{
+  font-family: fantasy;
+  color: rgb(246, 138, 66);
+  outline-color: black;
+}

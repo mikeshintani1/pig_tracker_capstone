@@ -4,24 +4,40 @@
 
 .button{
     color: white;
-    border-color: white;
+    border-color:transparent;
 }
 
 
 .sighting-text{
     border: 2px;
-    border-color: red;
+    border-color: rgb(255, 208, 0);
     overflow: inherit;
+    background-color: rgba(255, 187, 0, 0.891);
+    overflow: inherit;
+    opacity: 100%;
 }
 
 .label-group{
-    background-color: rgb(250, 183, 14);
-    border: 200px;
-    border-radius: 200px;
+    background-color: rgb(250, 165, 6);
+    box-sizing: 100px;
+    border: 10px;
+    border-color: black;
+    max-width: 100%;
+    background-size: 300px 100px;
+
     
 }
 
 .table{
-    background-color: rgb(180, 143, 51);
+    background-color: rgb(255, 220, 130);
     overflow: inherit;
+}
+
+.form-group{
+    width:max-content
+}
+
+.label-group{
+    width:max-content;
+
 }

@@ -9,7 +9,7 @@ const CommentTable = (props) => {
 
     return(
         <div>
-        <table className='table' charttype='table' border='2px' bordercolor="blue">
+        <table className='table' charttype='table' border='2px' bordercolor="orange">
         <thead>
             <tr>
                 <th scope='col'>Name</th>

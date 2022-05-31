@@ -93,21 +93,31 @@ const HomePage = () => {
     
                
        </nav>
+       <br></br>
+       <br></br>
+       <br></br>
+       
         <DisplaySightings />
-        <div>
+        <div class='container' id='sighting' >
 
-          <button className='getComments'
-          onClick = {getAllSightings}>Previous Sightings</button>
+          <button className='getSighting'
+          onClick = {getAllSightings}></button>
 
           <SightingTable parentSighting = {sighting} />
 
 
         </div>
-        <CreateFeast />
-        <div class='container'>
+        <br></br>
+       <br></br>
+       <br></br>        
+       <br></br>
+       <br></br>
+       <br></br>  
+          <CreateFeast />
+        <div class='container' id='feast'>
            
-          <button class="btn" className="getFeast"
-          onClick = {getFeast}> <img src='https://images.cooltext.com/5603882.png'></img>
+          <button class="btn" className="getFeast" width="100%"
+          onClick = {getFeast}>
           </button>
         </div>
 
@@ -115,16 +125,23 @@ const HomePage = () => {
           <DisplayFeast parentFeast = {feast} />
         
         </div>
-
+        <br></br>
+       <br></br>
+       <br></br>        
+       <br></br>
+       <br></br>
+       <br></br>  
+        <div className="container" id='comment'>
         <CreateComment />
-        <div className="getComments">
+        <div >
           <button
+          width='100%'
           className='getComments'
           onClick = {getAllComments}></button>
         </div>
-        <CommentTable parentComments = {comment}/>
+        <CommentTable className='container' parentComments = {comment}/>
           <div class='column'>
-          
+         </div> 
 
         </div>
       </div>

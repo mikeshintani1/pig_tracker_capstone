@@ -46,7 +46,12 @@ const CreateFeast = (props) => {
     return (
         <form onSubmit={handleSubmit} className='form-grid'>
             <FeastImg className='imgtop'/>
-            <nav style={{display: "flex", justifyContent: "space-evenly"}} >
+            <br></br>
+  
+            <p className='feast-info'>Feel free to put your name, day of party, address, time, and info for folks to come and enjoy your pig roasts!</p>
+            <br></br>
+
+            <nav style={{display: "flex", justifyContent: "space-evenly", }} >
             <div className='form-group'>
                 <label className='label-group'>Name</label>
                 <input type='text'
@@ -54,10 +59,11 @@ const CreateFeast = (props) => {
                 value={name}
                 onChange={(event) => setName(event.target.value)}/>
             </div>
+            <br></br>
 
             <div className='form-group'>
                 <label className='label-group'>Date</label>
-                <input type='text'
+                <input type='date'
                 className='form-control'
                 value={date}
                 onChange={(event) => setDate(event.target.value)}/>
@@ -66,6 +72,7 @@ const CreateFeast = (props) => {
             <div className='form-group'>
                 <label className='label-group'>Address</label>
                 <input type='text'
+                textbox=""
                 className='form-control'
                 value={address}
                 onChange={(event) => setAddress(event.target.value)}/>
@@ -73,7 +80,7 @@ const CreateFeast = (props) => {
 
             <div className='form-group'>
                 <label className='label-group'>Time</label>
-                <input type='text'
+                <input type='time'
                 className='form-control'
                 value={time}
                 onChange={(event) => setTime(event.target.value)}/>
@@ -83,6 +90,7 @@ const CreateFeast = (props) => {
                 <label className='label-group'>Info</label>
                 <input type='text'
                 className='form-control'
+                overflow='scroll'
                 value={info}
                 onChange={(event) => setInfo(event.target.value)}/>
             </div>

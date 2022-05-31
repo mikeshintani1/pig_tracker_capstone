@@ -1,7 +1,7 @@
 import { ReactDom } from "react-dom";
 import React, { useState, useRef, useCallback, useEffect } from "react";
 import { LoadScript, GoogleMap, InfoWindow, Marker} from "@react-google-maps/api";
-
+import './GoogleMap.css'
 
 const MapContainer = () => {
 
@@ -40,7 +40,7 @@ const MapContainer = () => {
 // AIzaSyAFJMJ13kPzlp2i-VHeMUtjsMymMewETds
   return (
     <div>
-    <label>
+    <label className='coords'>
     PIN COORDS (click to refresh):
     <input
       type="text"

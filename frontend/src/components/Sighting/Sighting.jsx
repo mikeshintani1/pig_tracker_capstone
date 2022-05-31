@@ -52,13 +52,14 @@ const CreateSighting = (props) => {
         <form onSubmit={handleSubmit} className='form-grid'>
             <HogHeader />
             <div>
-            <textbox className='sighting-text'>
+            <p className='sighting-text'>
                 Welcome to the Hog Sighting! Here you can enter your name, the location of pigs in lat / long form, cateogry (Hunter, Conservationist, Landowner), time you spotted the pigs, the day of spotting, and any comments such as pig health, pig size, etc!<br/>
                 
                 Press the Pig icon to post your sighting and the previous sightings button to load all other sightings!
-            </textbox>
+            </p>
             </div>
-            <nav style={{display: "flex", justifyContent: "space-evenly"}} >
+            <br></br>
+            <nav style={{className: '10', display: "flex", justifyContent: "space-evenly" }} >
             <div className='form-group'>
                 <label className='label-group'>Name</label>
                 <input type='text'
@@ -66,7 +67,7 @@ const CreateSighting = (props) => {
                 value={name}
                 onChange={(event) => setName(event.target.value)}/>
             </div>            
-
+            
             <div className='form-group'>
                 <label className='label-group'>Quantity</label>
                 <input type='text'
@@ -93,7 +94,7 @@ const CreateSighting = (props) => {
 
             <div className='form-group'>
                 <label className='label-group'>Time</label>
-                <input type='text'
+                <input type='time'
                 className='time'
                 value={time}
                 onChange={(event) => setTime(event.target.value)}/>
@@ -101,7 +102,7 @@ const CreateSighting = (props) => {
 
             <div className='date'>
                 <label className='label-group'>Date</label>
-                <input type='text'
+                <input type='date'
                 className='date'
                 width='15px'
                 value={date}
@@ -116,6 +117,7 @@ const CreateSighting = (props) => {
                 value={text}
                 onChange={(event) => setText(event.target.value)}/>
             </div>
+            <br></br>
             </nav>
                     <button 
                     type="button" className='button' backgroundcolor='white' border='0px'>

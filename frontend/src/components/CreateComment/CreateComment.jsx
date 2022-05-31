@@ -42,6 +42,8 @@ const CreateComment = (props) => {
     return (
         <form onSubmit={handleSubmit} className='form-grid'>
             <CommentImg />
+            <p className='comment-text'>Go ahead and leave any comments about a BBQ or sighting that someone posted!  Make sure to keep it friendly and G rated!</p>
+            <br></br>
             <nav style={{display: "flex", justifyContent: "space-evenly"}} >
             <div className='form-group'>
                 <label className='label-group'>Name</label>

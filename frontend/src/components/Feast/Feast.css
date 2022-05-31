@@ -1,3 +1,12 @@
 .imgtop{
-    margin:80px
+    margin:80px;
+    background-color: lightcoral;
+}
+
+.box-address{
+    overflow: scroll;
+}
+
+.feast-info{
+    background-color: darkorange;
 }
