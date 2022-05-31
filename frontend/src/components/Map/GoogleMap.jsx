@@ -1,16 +1,22 @@
 import { ReactDom } from "react-dom";
 import React, { useState, useRef, useCallback, useEffect } from "react";
-import { LoadScript, GoogleMap, InfoWindow, Marker} from "@react-google-maps/api";
+import { LoadScript, GoogleMap, Marker, InfoBox } from "@react-google-maps/api";
 import './GoogleMap.css'
+
 
 const MapContainer = () => {
 
   const [latLng, setLatLng] = useState({})
-  //latLngString?
+
+  const onLoad = infoWindow => {
+    console.log('infoWindow: ', infoWindow)
+  }
+  
 
   //add form that allows user to type in info, when form submits to the 
   //some fields typed in
   // latLngString will be added to object that axios sends to backend
+
 
   const mapStyles = {        
     height: "50vh",
@@ -19,14 +25,8 @@ const MapContainer = () => {
   const defaultCenter = {
     lat: 32.72577166798035 , lng:-96.81400769921545
   }
-  const position = {
-    lat: 31.1352 ,
-    lng: -99.3351
-  }
 
-  const onLoad = marker => {
-    console.log('marker: ', marker)
-  }
+
   
   const onMapClick = (e) => {
     console.log('hi')
@@ -56,14 +56,25 @@ const MapContainer = () => {
           zoom={6}
           center={defaultCenter}
           onClick={onMapClick}
-          autopan={false}
-          
           >
           <Marker
             onLoad={onLoad}
             position={latLng}
-          >  
+            defaultLabel={''}
+          >
+
           </Marker>
+          <InfoBox
+      onLoad={onLoad}
+
+      position={latLng}
+    >
+      <div style={{ backgroundColor: 'yellow', opacity: 0.75, padding: 12 }}>
+        <div style={{ fontSize: 16, fontColor: `#08233B` }}>
+         {coords}
+        </div>
+      </div>
+    </InfoBox>
           </GoogleMap>
      </LoadScript>    
      </div>    

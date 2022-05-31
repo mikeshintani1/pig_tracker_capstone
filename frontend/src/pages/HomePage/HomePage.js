@@ -96,9 +96,9 @@ const HomePage = () => {
        <br></br>
        <br></br>
        <br></br>
-       
+        <div id='sighting'></div>
         <DisplaySightings />
-        <div class='container' id='sighting' >
+        <div class='container' >
 
           <button className='getSighting'
           onClick = {getAllSightings}></button>

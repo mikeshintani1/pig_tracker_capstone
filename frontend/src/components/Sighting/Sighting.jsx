@@ -53,7 +53,7 @@ const CreateSighting = (props) => {
             <HogHeader />
             <div>
             <p className='sighting-text'>
-                Welcome to the Hog Sighting! Here you can enter your name, the location of pigs in lat / long form, cateogry (Hunter, Conservationist, Landowner), time you spotted the pigs, the day of spotting, and any comments such as pig health, pig size, etc!<br/>
+                Welcome to the Hog Sighting! Here you can enter your name, the location of pigs in lat / long form, category of user (Hunter, Conservationist, Landowner), time you spotted the pigs, the day of spotting, and any comments such as pig health, pig size, etc!<br/>
                 
                 Press the Pig icon to post your sighting and the previous sightings button to load all other sightings!
             </p>
@@ -67,7 +67,14 @@ const CreateSighting = (props) => {
                 value={name}
                 onChange={(event) => setName(event.target.value)}/>
             </div>            
-            
+                        <div className='form-group'>
+                <label className='label-group'>Category</label>
+                <input type='text'
+                className='form-control'
+                value={category}
+                onChange={(event) => setCategory(event.target.value)}/>
+            </div>
+
             <div className='form-group'>
                 <label className='label-group'>Quantity</label>
                 <input type='text'
@@ -84,13 +91,6 @@ const CreateSighting = (props) => {
                 onChange={(event) => setLocation(event.target.value)}/>
             </div>
 
-            <div className='form-group'>
-                <label className='label-group'>Category</label>
-                <input type='text'
-                className='form-control'
-                value={category}
-                onChange={(event) => setCategory(event.target.value)}/>
-            </div>
 
             <div className='form-group'>
                 <label className='label-group'>Time</label>
