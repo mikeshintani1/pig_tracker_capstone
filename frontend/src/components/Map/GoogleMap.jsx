@@ -32,7 +32,7 @@ const MapContainer = () => {
     console.log('hi')
     console.log(e.latLng.toString());
     setLatLng(e.latLng)
-
+    setCoords(latLng.toString())
   }
   const [coords, setCoords] = useState('')
  
@@ -69,8 +69,8 @@ const MapContainer = () => {
 
       position={latLng}
     >
-      <div style={{ backgroundColor: 'yellow', opacity: 0.75, padding: 12 }}>
-        <div style={{ fontSize: 16, fontColor: `#08233B` }}>
+      <div className="label-flag" style={{ width: '200px', backgroundColor: 'yellow', opacity: 0.75, padding: 5, boxSizing: 20, }}>
+        <div style={{ fontSize: 16, fontColor: `#08233B`, width: '200px',maxWidth:'100%' }}>
          {coords}
         </div>
       </div>

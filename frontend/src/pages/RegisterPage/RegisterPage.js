@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import AuthContext from "../../context/AuthContext";
 import useCustomForm from "../../hooks/useCustomForm";
-
+import './RegisterPage.css'
 
 const RegisterPage = () => {
   const { registerUser } = useContext(AuthContext);
@@ -22,7 +22,7 @@ const RegisterPage = () => {
   return (
     <div className="container">
       <form className="form" onSubmit={handleSubmit}>
-        <label>
+        <label className='register-labels'>
           Username:{" "}
           <input
             type="text"
@@ -31,7 +31,7 @@ const RegisterPage = () => {
             onChange={handleInputChange}
           />
         </label>
-        <label>
+        <label className='register-labels'>
           First Name:{" "}
           <input
             type="text"
@@ -40,7 +40,7 @@ const RegisterPage = () => {
             onChange={handleInputChange}
           />
         </label>
-        <label>
+        <label className='register-labels'>
           Last Name:{" "}
           <input
             type="text"
@@ -49,7 +49,7 @@ const RegisterPage = () => {
             onChange={handleInputChange}
           />
         </label>
-        <label>
+        <label className='register-labels'>
          Email:{" "}
           <input
             type="text"
@@ -58,7 +58,7 @@ const RegisterPage = () => {
             onChange={handleInputChange}
           />
         </label>
-        <label>
+        <label className='register-labels'>
           Password:{" "}
           <input
             type="text"
@@ -66,12 +66,12 @@ const RegisterPage = () => {
             value={formData.password}
             onChange={handleInputChange}
           />
-        </label>
-        <p style={{ fontSize: "12px" }}>
+        </label >
+        <p style={{ fontSize: "12px", backgroundColor:'yellow' }}>
           NOTE: Make this an uncommon password with characters, numbers, and
           special characters!
         </p>
-        <button>Register!</button>
+        <button className="register"></button>
       </form>
     </div>
   );

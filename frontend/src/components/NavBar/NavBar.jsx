@@ -16,9 +16,9 @@ const Navbar = () => {
         <Header />
         <div class='nav'>
         <a href='#sighting' className='fast-link'>SIGHTING</a>
-        <br></br>
+
         <a href='#feast' className='fast-link'>FEAST</a>
-        <br></br>
+  
         <a href='#comment' className='fast-link'>COMMENT</a>
         </div>
         </li>

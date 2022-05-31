@@ -1,3 +1,31 @@
 .error {
   color: red;
 }
+
+.login{
+  text-align: inherit;
+  box-sizing: content-box;
+  background-image: url(https://images.cooltext.com/5604013.png);
+  border-color:transparent;
+  color: rgb(231, 247, 0);
+  font-weight: 100%;
+  opacity: 80%;
+  padding: 0%;
+  height: 70px;
+  width: 100%;
+  max-width: 11%
+}
+
+.link-register{
+  text-align: inherit;
+  box-sizing: content-box;
+  background-image: url(https://images.cooltext.com/5604014.png);
+  border-color:transparent;
+  color: rgb(231, 247, 0);
+  font-weight: 100%;
+  opacity: 80%;
+  padding: 0%;
+  height: 70px;
+  width: 100%;
+  max-width: 13%
+}

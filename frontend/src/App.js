@@ -20,7 +20,7 @@ function App() {
   
 
   return (
-    <div>
+    <div className='all-all'>
       <Navbar />
       <Routes>
         <Route

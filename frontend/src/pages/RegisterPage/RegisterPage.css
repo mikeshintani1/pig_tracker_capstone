@@ -1,0 +1,23 @@
+.register-labels{
+    background-color: orange;
+    width: 300px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: larger;
+    max-width: 20%;
+    
+
+}
+
+.register{
+    text-align: inherit;
+    box-sizing: content-box;
+    background-image: url(https://images.cooltext.com/5604010.png);
+    border-color:transparent;
+    color: rgb(231, 247, 0);
+    font-weight: 100%;
+    opacity: 80%;
+    padding: 0%;
+    height: 70px;
+    width: 100%;
+    max-width: 16%
+}
