@@ -37,7 +37,7 @@ const MapContainer = () => {
   const [coords, setCoords] = useState('')
  
 
-// AIzaSyAFJMJ13kPzlp2i-VHeMUtjsMymMewETds
+// AIzaSyAFJMJ13kPzlp2i-VHeMUtjsMymMewETd
   return (
     <div>
     <label className='coords'>
@@ -49,7 +49,7 @@ const MapContainer = () => {
     />
   </label>
      <LoadScript
-       googleMapsApiKey="AIzaSyAFJMJ13kPzlp2i-VHeMUtjsMymMewETds">
+       googleMapsApiKey="">
         <GoogleMap
           id="marker-example"
           mapContainerStyle={mapStyles}
