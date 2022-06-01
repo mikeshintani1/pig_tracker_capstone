@@ -1,5 +1,5 @@
 import { ReactDom } from "react-dom";
-import React, { useState, useRef, useCallback, useEffect } from "react";
+import React, { useState } from "react";
 import { LoadScript, GoogleMap, Marker, InfoBox } from "@react-google-maps/api";
 import './GoogleMap.css'
 
@@ -7,6 +7,9 @@ import './GoogleMap.css'
 const MapContainer = () => {
 
   const [latLng, setLatLng] = useState({})
+
+  
+
 
   const onLoad = infoWindow => {
     console.log('infoWindow: ', infoWindow)
@@ -38,6 +41,8 @@ const MapContainer = () => {
  
 
 // AIzaSyAFJMJ13kPzlp2i-VHeMUtjsMymMewETd
+    const location_coords = (props) => {
+      console.log(props.parentSighting);
   return (
     <div>
     <label className='coords'>
@@ -64,13 +69,22 @@ const MapContainer = () => {
           >
 
           </Marker>
+          {props.parentSighting.map((sighting) => {
+            return(
+          <Marker
+          position={sighting.location}
+          >
+          
+          </Marker>
+          )})}
           <InfoBox
-      onLoad={onLoad}
+          onLoad={onLoad}
 
-      position={latLng}
-    >
-      <div className="label-flag" style={{ width: '200px', backgroundColor: 'yellow', opacity: 0.75, padding: 5, boxSizing: 20, }}>
-        <div style={{ fontSize: 16, fontColor: `#08233B`, width: '200px',maxWidth:'100%' }}>
+          position={latLng}
+          >
+      <div className="label-flag"
+      style={{ width: '200px', backgroundColor: 'yellow', opacity: 0.75, padding: 5, boxSizing: 20, }}>
+      <div style={{ fontSize: 16, fontColor: `#08233B`, width: '200px',maxWidth:'100%' }}>
          {coords}
         </div>
       </div>
@@ -80,5 +94,5 @@ const MapContainer = () => {
      </div>    
      
   )
-}
+}}
 export default MapContainer;

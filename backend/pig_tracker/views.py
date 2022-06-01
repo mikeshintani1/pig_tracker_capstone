@@ -69,12 +69,12 @@ def get_all_feast(request):
 
 
 @api_view(['GET'])
-@permission_classes([IsAuthenticated])
-def get_all_replies(request):
-    comment = get_object_or_404(Comment,pk=pk)
+@permission_classes([AllowAny])
+def get_all_locations(request):
+    sighting_loc = get_object_or_404(Sighting,pk=pk)
     if request.method == 'GET':
-        reply = Reply.objects.filter(comment_id = comment.id)
-        serializer = ReplySerializer(reply, many=True)
+        sighting_loc = Sighting.objects.filter(sighting_location = sighting_loc.location)
+        serializer = SightingSerializer(sighting_loc, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
 
 

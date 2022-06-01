@@ -3,6 +3,7 @@ import useAuth from "../../hooks/useAuth";
 import axios from "axios";
 import CommentImg from './commentimg';
 import './CreateComment.css'
+import { Marker } from '@react-google-maps/api'
 
 const CreateComment = (props) => {
     
@@ -58,6 +59,7 @@ const CreateComment = (props) => {
                 className='form-control'
                 value={location}
                 onChange={(event) => setLocation(event.target.value)}/>
+               
             </div>
             <div className='form-group'>
                 <label className='label-group'>Comment</label>
