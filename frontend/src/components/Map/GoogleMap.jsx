@@ -41,7 +41,7 @@ const MapContainer = () => {
   return (
     <div>
     <label className='coords'>
-    PIN COORDS (click to refresh):
+    COORDINATES:
     <input
       type="text"
       value={coords}
@@ -49,7 +49,7 @@ const MapContainer = () => {
     />
   </label>
      <LoadScript
-       googleMapsApiKey="">
+       googleMapsApiKey="AIzaSyAFJMJ13kPzlp2i-VHeMUtjsMymMewETds">
         <GoogleMap
           id="marker-example"
           mapContainerStyle={mapStyles}
