@@ -35,11 +35,16 @@ const MapContainer = (props) => {
     //split
     //js object bracket notation
     const polygon = (location);
-    const latLng = polygon.split(' , ').map((item) => {
-      const [ lat, lng ] = item.split(',',[21]);
-      return { lat, lng };
-    });
-    console.log(latLng);
+    const latLong = polygon.split(' , ').map((item) => {
+      const [ splat, spllng ] = item.split(',',[21]);
+      const lat = parseFloat(splat.substr(1,6))
+      const lng = parseFloat(spllng.substr(1,7))
+  
+      return { lat ,  lng };
+    }
+
+    );
+    console.log(latLong[0]);
 
 
 
@@ -49,7 +54,7 @@ const MapContainer = (props) => {
     //   lat: 32.72577166798035 , lng:-96.81400769921545
     // }
 
-    return latLng
+    return latLong[0]
   }
 
   
@@ -90,8 +95,9 @@ const MapContainer = (props) => {
           >
             {console.log('latLng',latLng)}
           </Marker>
-          {props.parentSighting.map((sighting) =>
-          <Marker
+          {props.parentSighting &&
+            props.parentSighting.map((sighting, index) =>
+          <Marker key={index}
           position={parseLatLng(sighting.location)}
           >
             {console.log('sighting.location',sighting.location)}
