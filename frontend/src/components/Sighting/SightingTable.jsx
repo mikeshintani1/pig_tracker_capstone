@@ -4,8 +4,9 @@ import './Sighting.css'
 
 const SightingTable = (props) => {
 
-    console.log(props.parentSighting);
+   
 
+    console.log(props.parentSighting);
     return(
         <table className='table' charttype='table' border='2px' bordercolor='orange'>
         <thead>
@@ -25,7 +26,7 @@ const SightingTable = (props) => {
                 <tr overflow='scroll'>
                 <td >{sighting.name}</td>
                 <td>{sighting.category}</td>
-                <td >{sighting.sighting_id}</td>
+                <td>{sighting.sighting_id}</td>
                 <td>{sighting.location}</td>
                 <td>{sighting.time}</td>
                 <td>{sighting.date}</td>

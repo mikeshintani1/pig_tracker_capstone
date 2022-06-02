@@ -2,13 +2,13 @@ import { ReactDom } from "react-dom";
 import React, { useState } from "react";
 import { LoadScript, GoogleMap, Marker, InfoBox } from "@react-google-maps/api";
 import './GoogleMap.css'
+import SightingTable from "../Sighting/SightingTable";
 
 
-const MapContainer = () => {
+const MapContainer = (props) => {
 
   const [latLng, setLatLng] = useState({})
 
-  
 
 
   const onLoad = infoWindow => {
@@ -30,6 +30,28 @@ const MapContainer = () => {
   }
 
 
+  const parseLatLng = (location) => {
+    //location is "(30.30511632592444, -100.93510165410642)"
+    //split
+    //js object bracket notation
+    const polygon = (location);
+    const latLng = polygon.split(' , ').map((item) => {
+      const [ lat, lng ] = item.split(',',[21]);
+      return { lat, lng };
+    });
+    console.log(latLng);
+
+
+
+
+    //goal is 
+    // {
+    //   lat: 32.72577166798035 , lng:-96.81400769921545
+    // }
+
+    return latLng
+  }
+
   
   const onMapClick = (e) => {
     console.log('hi')
@@ -40,9 +62,8 @@ const MapContainer = () => {
   const [coords, setCoords] = useState('')
  
 
-// AIzaSyAFJMJ13kPzlp2i-VHeMUtjsMymMewETd
-    const location_coords = (props) => {
-      console.log(props.parentSighting);
+// AIzaSyAFJMJ13kPzlp2i-VHeMUtjsMymMewETds
+
   return (
     <div>
     <label className='coords'>
@@ -67,16 +88,15 @@ const MapContainer = () => {
             position={latLng}
             defaultLabel={''}
           >
-
+            {console.log('latLng',latLng)}
           </Marker>
-          {props.parentSighting.map((sighting) => {
-            return(
+          {props.parentSighting.map((sighting) =>
           <Marker
-          position={sighting.location}
+          position={parseLatLng(sighting.location)}
           >
-          
+            {console.log('sighting.location',sighting.location)}
           </Marker>
-          )})}
+          )}
           <InfoBox
           onLoad={onLoad}
 
@@ -94,5 +114,5 @@ const MapContainer = () => {
      </div>    
      
   )
-}}
+}
 export default MapContainer;
